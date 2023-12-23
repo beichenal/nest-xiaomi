@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import * as svgCaptcha from 'svg-captcha';
-
+import { MD5 } from 'crypto-js';
 @Injectable()
 export class ToolsService {
   captcha() {
@@ -12,5 +12,9 @@ export class ToolsService {
       background: '#cc9966',
     });
     return capthca;
+  }
+
+  md5(str) {
+    return MD5(str).toString();
   }
 }
